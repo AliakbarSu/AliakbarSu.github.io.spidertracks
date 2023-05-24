@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line no-undef, @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme')
+// eslint-disable-next-line no-undef, @typescript-eslint/no-var-requires
+const forms = require('@tailwindcss/forms')
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -10,5 +12,5 @@ export default {
       }
     }
   },
-  plugins: []
+  plugins: [forms]
 }
