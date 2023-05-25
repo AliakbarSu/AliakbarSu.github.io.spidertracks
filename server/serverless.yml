@@ -1,0 +1,66 @@
+service: spidertracks
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: ap-southeast-2
+  memorySize: 128
+  environment:
+    TABLE_NAME:
+      Ref: customersTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+      Resource:
+        - 'Fn::GetAtt': [customersTable, Arn]
+functions:
+  getCustomers:
+    handler: app.getCustomers
+    events:
+      - http:
+          path: /api/customers
+          method: GET
+          cors: true
+  updateCustomerStatus:
+    handler: app.updateCustomerStatus
+    events:
+      - http:
+          path: /api/customers/{id}/update
+          method: PUT
+          cors: true
+  addOpportunity:
+    handler: app.addOpportunityForCustomer
+    events:
+      - http:
+          path: /api/customers/{id}/opportunities/add
+          method: POST
+          cors: true
+  updateOpportunity:
+    handler: app.updateOpportunity
+    events:
+      - http:
+          path: /api/customers/{id}/opportunities/update
+          method: PUT
+          cors: true
+
+resources:
+  Resources:
+    customersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: customersTable
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
