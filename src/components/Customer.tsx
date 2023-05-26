@@ -61,6 +61,11 @@ export default function Customers({ customer }: { customer: Customer }) {
         setMenu((prev) => !prev)
     }
 
+    const formatDate = (date: string) => {
+        const d = new Date(date)
+        return d.toLocaleDateString("en-ca", { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })
+    }
+
     return (
         <li key={customer.email} className="flex flex-wrap justify-between gap-x-6 py-5" >
             <StatusModal data-testid="statusModal" status={customer.status} open={modal} onClose={() => setModal(false)} onUpdate={onUpdateStatusHandler} />
@@ -75,6 +80,10 @@ export default function Customers({ customer }: { customer: Customer }) {
 
                         {customer.email}
 
+                    </p>
+                    <p className="mt-1 flex text-xs leading-5 text-gray-500">
+                        <span className="pr-2">Created at:</span>
+                        <time dateTime={customer.created_at}>{formatDate(customer.created_at)}</time>
                     </p>
                 </div>
             </div>

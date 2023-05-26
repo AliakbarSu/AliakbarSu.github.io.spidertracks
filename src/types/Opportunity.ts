@@ -1,7 +1,7 @@
 export enum OpportunityStatusEnum {
-  new = 'new',
-  closedWon = 'closedWon',
-  closedLost = 'closedLost'
+  new = 'New',
+  closedWon = 'Closed Won',
+  closedLost = 'Closed Lost'
 }
 
 export interface Opportunity {

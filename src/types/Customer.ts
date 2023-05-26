@@ -1,9 +1,9 @@
 import { Opportunity } from './Opportunity'
 
 export enum CustomerStatusEnum {
-  active = 'active',
-  inactive = 'inactive',
-  lead = 'lead'
+  active = 'Active',
+  inactive = 'Non-Active',
+  lead = 'Lead'
 }
 
 export interface Customer {
