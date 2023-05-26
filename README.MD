@@ -33,7 +33,7 @@ This is a react application that allows the user to filter through a list of cus
 1. Clone the repository:
 
    ```shell
-      git clone git@github.com:AliakbarSu/Spidertracks.git
+      git clone git@github.com:AliakbarSu/AliakbarSu.github.io.spidertracks.git
    ```
 
 2. Clone the repository:
