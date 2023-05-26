@@ -5,6 +5,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 vi.mock('hooks/store', () => ({
     useAppDispatch: vi.fn(),
+    useAppSelector: vi.fn(),
 }));
 vi.mock('store/customer', () => ({
     updateCustomerStatus: vi.fn(),

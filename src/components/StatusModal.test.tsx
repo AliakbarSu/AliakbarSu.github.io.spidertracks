@@ -8,6 +8,9 @@ const mockOnClose = vi.fn();
 
 const mockStatus = CustomerStatusEnum.active;
 
+vi.mock('hooks/store', () => ({
+    useAppSelector: vi.fn(),
+}));
 
 // Mock ResizeObserver as it's throwing an error in tests
 window.ResizeObserver =

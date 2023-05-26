@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "hooks/store"
 import { selectCustomers, setCustomers } from "store/customer"
 import { useEffect, useState } from "react"
 import Filters from "components/Filters"
+import { selectLoading } from "store/UI"
+import ListSkeleton from "components/UI/ListSkeleton"
 
 // const customers: Customer[] = [
 //     {
@@ -75,6 +77,7 @@ export default function Customers() {
     const data = useAppSelector(selectCustomers)
     const [filters, setFilters] = useState<CustomerStatusEnum[]>([CustomerStatusEnum.active, CustomerStatusEnum.inactive, CustomerStatusEnum.lead])
     const [sortOrder, setSortOrder] = useState<number>(1)
+    const loading = useAppSelector(selectLoading)
 
     const filterAndSort = (
     ): Customer[] => {
@@ -91,11 +94,12 @@ export default function Customers() {
     return (
         <>
             <Filters onSort={setSortOrder} onFilters={setFilters} />
-            <ul role="list" className="divide-y divide-gray-100">
+            {!loading && <ul role="list" className="divide-y divide-gray-100">
                 {data.map((customer) => (
                     <CustomerComponent key={customer.id} customer={customer} />
                 ))}
-            </ul>
+            </ul>}
+            {loading && <ListSkeleton />}
         </>
     )
 }

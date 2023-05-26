@@ -28,6 +28,6 @@ export const UISlice = createSlice({
 export const { setLoading, setUpdating } = UISlice.actions
 
 export const selectLoading = (state: RootState) => state.UI.loading
-export const selectUpdating = (state: RootState) => state.UI.loading
+export const selectUpdating = (state: RootState) => state.UI.updating
 
 export default UISlice.reducer
