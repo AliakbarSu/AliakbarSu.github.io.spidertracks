@@ -4,7 +4,7 @@ import { Opportunity } from "types/Opportunity"
 
 const Opportunities = ({ opportunities, customerId, ...props }: { opportunities: Opportunity[], customerId: string }) => {
     return (
-        <div className="w-full mt-12" {...props}>
+        <div className="w-full mt-12 p-3 border-gray-500 border-l border-r" {...props}>
             <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold leading-6 text-gray-900">Opportunities</h1>

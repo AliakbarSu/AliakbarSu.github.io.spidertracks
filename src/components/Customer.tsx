@@ -64,7 +64,7 @@ export default function Customers({ customer }: { customer: Customer }) {
     return (
         <li key={customer.email} className="flex flex-wrap justify-between gap-x-6 py-5" >
             <StatusModal data-testid="statusModal" status={customer.status} open={modal} onClose={() => setModal(false)} onUpdate={onUpdateStatusHandler} />
-            <div className="flex gap-x-4 cursor-pointer" onClick={onToggleMenu}>
+            <div className="flex gap-x-4 cursor-pointer w-2/4" onClick={onToggleMenu}>
                 <div className="min-w-0 flex-auto">
                     <p className="text-sm font-semibold leading-6 text-gray-900">
 
@@ -78,10 +78,8 @@ export default function Customers({ customer }: { customer: Customer }) {
                     </p>
                 </div>
             </div>
-            <div className="flex gap-x-4">
-                <p><span>Opportunities: </span>{customer?.opportunities?.length}</p>
-            </div>
-            <div className="flex items-center gap-x-6">
+
+            <div className="flex items-center justify-between gap-x-6 w-1/6">
                 <div className="hidden sm:flex sm:flex-col sm:items-end">
                     <Status status={customer.status} />
                 </div>
