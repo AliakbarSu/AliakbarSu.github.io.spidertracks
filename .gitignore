@@ -26,6 +26,8 @@ dist-ssr
 # server
 server/.serverless
 
+# build
+docs
 
 # env files
 .env.local

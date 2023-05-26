@@ -138,8 +138,8 @@ const Filters = ({ onSort, onFilters }: { onSort: (value: number) => void, onFil
             </Transition.Root>
 
             <div className="mx-auto py-16">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">Customers</h1>
-
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900">View and Edit Customers</h1>
+                <p className="mt-4 max-w-3xl text-sm text-gray-500">View customers' opportunities by clicking on the customer name</p>
             </div>
 
             {/* Filters */}

@@ -8,68 +8,6 @@ import Filters from "components/Filters"
 import { selectLoading } from "store/UI"
 import ListSkeleton from "components/UI/ListSkeleton"
 
-// const customers: Customer[] = [
-//     {
-//         id: "customer_one",
-//         name: 'Leslie Alexander',
-//         email: 'leslie.alexander@example.com',
-//         opportunities: [
-//             {
-//                 id: "opportunity_one",
-//                 name: "New opportunity",
-//                 status: OpportunityStatusEnum.new
-//             },
-//             {
-//                 id: "opportunity_two",
-//                 name: "New opportunity",
-//                 status: OpportunityStatusEnum.closedLost
-//             }
-//         ],
-//         status: CustomerStatusEnum.active,
-//         created_at: '2023-01-23T13:23Z',
-//     },
-//     {
-//         id: "customer_two",
-//         name: 'Michael Foster',
-//         email: 'michael.foster@example.com',
-//         opportunities: [],
-//         status: CustomerStatusEnum.active,
-//         created_at: '2023-01-23T13:23Z',
-//     },
-//     {
-//         id: "customer_three",
-//         name: 'Dries Vincent',
-//         email: 'dries.vincent@example.com',
-//         opportunities: [],
-//         status: CustomerStatusEnum.inactive,
-//         created_at: "2023-01-23T13:23Z"
-//     },
-//     {
-//         id: "customer_four",
-//         name: 'Lindsay Walton',
-//         email: 'lindsay.walton@example.com',
-//         opportunities: [],
-//         status: CustomerStatusEnum.lead,
-//         created_at: '2023-01-23T13:23Z',
-//     },
-//     {
-//         id: "customer_five",
-//         name: 'Courtney Henry',
-//         email: 'courtney.henry@example.com',
-//         opportunities: [],
-//         status: CustomerStatusEnum.active,
-//         created_at: '2023-01-23T13:23Z',
-//     },
-//     {
-//         id: "customer_six",
-//         name: 'Tom Cook',
-//         email: 'tom.cook@example.com',
-//         opportunities: [],
-//         status: CustomerStatusEnum.lead,
-//         created_at: '2023-01-23T13:23Z',
-//     },
-// ]
-
 
 export default function Customers() {
     const dispatch = useAppDispatch()
@@ -81,6 +19,7 @@ export default function Customers() {
 
     const filterAndSort = (
     ): Customer[] => {
+        // Filters and sort the customers array based on the filters and sort order
         const filteredItems = customers.filter((item) => filters.includes(item.status));
         return filteredItems.sort((a, b) => {
             return a.name.localeCompare(b.name) ? sortOrder : -sortOrder;
