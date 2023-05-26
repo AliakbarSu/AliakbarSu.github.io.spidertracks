@@ -15,10 +15,13 @@
     "@heroicons/react": "^2.0.18",
     "@reduxjs/toolkit": "^1.9.5",
     "@tailwindcss/forms": "^0.5.3",
+    "@testing-library/react": "^14.0.0",
     "axios": "^1.4.0",
+    "jsdom": "^22.0.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
     "sort-by": "^1.2.0"
