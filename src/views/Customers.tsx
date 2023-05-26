@@ -22,7 +22,7 @@ export default function Customers() {
         // Filters and sort the customers array based on the filters and sort order
         const filteredItems = customers.filter((item) => filters.includes(item.status));
         return filteredItems.sort((a, b) => {
-            return a.name.localeCompare(b.name) ? sortOrder : -sortOrder;
+            return sortOrder === 1 ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
         });
     }
 
