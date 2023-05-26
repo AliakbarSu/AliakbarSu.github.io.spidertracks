@@ -30,7 +30,7 @@ describe("Opportunities", () => {
         render(
             <Opportunities opportunities={[]} customerId="123" />
         );
-        expect(screen.getByText("No opportunities")).toBeDefined();
+        expect(screen.getByText("No opportunity")).toBeDefined();
     });
 
     it("Should render 'Add new opportunity' correctly", () => {

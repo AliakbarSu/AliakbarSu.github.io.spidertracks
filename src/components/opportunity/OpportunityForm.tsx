@@ -87,6 +87,10 @@ const OpportunityForm = () => {
 
     }
 
+    const isChecked = (value: OpportunityStatusEnum) => {
+        return value === optData.status
+    }
+
     useEffect(() => {
         if (location.pathname.includes("/add")) {
             setMode("add")
@@ -149,7 +153,7 @@ const OpportunityForm = () => {
                                                 name="status"
                                                 type="radio"
                                                 value={status.value}
-                                                defaultChecked={status.value === optData.status}
+                                                checked={isChecked(status.value)}
                                                 onChange={onStatusChangeHandler}
                                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                                             />
