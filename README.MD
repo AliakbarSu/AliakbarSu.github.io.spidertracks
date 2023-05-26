@@ -2,6 +2,8 @@
 
 This is a React SPA application with a backend built using the Serverless Framework.
 
+[Live Demo](https://vermillion-strudel-f0a036.netlify.app/)
+
 ## Description
 
 This is a react application that allows the user to filter through a list of customers, add sales opportunity to a specific customer, and update the status of a customer.
