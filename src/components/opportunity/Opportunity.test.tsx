@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Opportunities from "./Opportunity";
-import { describe, test, expect, vi } from "vitest"
+import { describe, it, expect, vi } from "vitest"
 import { Opportunity, OpportunityStatusEnum } from "types/Opportunity";
 
 const mockOpportunities: Opportunity[] = [
@@ -18,7 +18,7 @@ vi.mock('react-router-dom', async () => {
 })
 
 describe("Opportunities", () => {
-    test("Should render opportunities correctly when there are opportunities", () => {
+    it("Should render opportunities correctly when there are opportunities", () => {
         render(
             <Opportunities opportunities={mockOpportunities} customerId="123" />, { wrapper: BrowserRouter }
         );
@@ -26,14 +26,14 @@ describe("Opportunities", () => {
         expect(screen.getByText("Opportunity 2")).toBeDefined();
     });
 
-    test("Should render 'No opportunities' when there are no opportunities", () => {
+    it("Should render 'No opportunities' when there are no opportunities", () => {
         render(
             <Opportunities opportunities={[]} customerId="123" />
         );
         expect(screen.getByText("No opportunities")).toBeDefined();
     });
 
-    test("Should render 'Add new opportunity' correctly", () => {
+    it("Should render 'Add new opportunity' correctly", () => {
         render(
             <Opportunities opportunities={mockOpportunities} customerId="123" />, { wrapper: BrowserRouter }
         );
