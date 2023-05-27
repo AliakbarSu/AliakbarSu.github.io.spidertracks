@@ -1,5 +1,5 @@
 import { CustomerStatusEnum } from 'types/Customer'
-import { OpportunityStatusEnum } from 'types/Opportunity'
+import { Opportunity, OpportunityStatusEnum } from 'types/Opportunity'
 import axios from 'axios'
 
 export const updateCustomerStatusApi = async ({
@@ -27,7 +27,7 @@ export const addOpportunityApi = async ({
   customerId: string
   name: string
   status: OpportunityStatusEnum
-}): Promise<string> => {
+}): Promise<{ message: string; data: Opportunity }> => {
   const result = await axios.post(
     `${import.meta.env.VITE_API_URL}/customers/${customerId}/opportunities/add`,
     { name, status },

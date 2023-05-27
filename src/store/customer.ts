@@ -36,6 +36,28 @@ export const customersSlice = createSlice({
       })
       state.customers = updatedCustomer
     })
+    builder.addCase(updateOpportunity.fulfilled, (state, action) => {
+      const { customerId } = action.meta.arg
+      const { id, name, status } = action.meta.arg
+      const customer = state.customers.find(({ id }) => id === customerId)
+      if (!customer) return
+      const opportunities = customer?.opportunities.map((opt) =>
+        opt.id === id ? { id, name, status } : opt
+      )
+      state.customers = state.customers.map((customer) =>
+        customer.id === customerId ? { ...customer, opportunities } : customer
+      )
+    })
+    builder.addCase(addCustomerOpportunity.fulfilled, (state, action) => {
+      const { customerId } = action.meta.arg
+      const opotunity = action.payload.data
+      state.customers = state.customers.map((customer) => {
+        if (customer.id === customerId) {
+          customer.opportunities.push(opotunity)
+        }
+        return customer
+      })
+    })
   }
 })
 
