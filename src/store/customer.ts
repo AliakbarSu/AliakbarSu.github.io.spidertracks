@@ -4,11 +4,12 @@ import type { RootState } from 'store/index'
 import { Customer, CustomerStatusEnum } from 'types/Customer'
 import {
   addOpportunityApi,
+  getCustomers,
   updateCustomerStatusApi,
   updateOpportunityApi
 } from 'libs/api'
 import { OpportunityStatusEnum } from 'types/Opportunity'
-import { setUpdating } from './UI'
+import { setLoading, setUpdating } from './UI'
 
 interface CustomerState {
   customers: Customer[]
@@ -50,6 +51,20 @@ export const updateCustomerStatus = createAsyncThunk(
       return result
     } finally {
       thunkAPI.dispatch(setUpdating(false))
+    }
+  }
+)
+
+export const loadCustomers = createAsyncThunk(
+  'customers/loadCustomers',
+  async (_, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(setLoading(true))
+      const customers = await getCustomers()
+      thunkAPI.dispatch(setCustomers(customers))
+      return customers
+    } finally {
+      thunkAPI.dispatch(setLoading(false))
     }
   }
 )
