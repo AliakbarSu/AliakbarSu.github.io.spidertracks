@@ -82,14 +82,14 @@ export default function Customers({ customer }: { customer: Customer }) {
 
                     </p>
                     <p className="mt-1 flex text-xs leading-5 text-gray-500">
-                        <span className="pr-2">Created at:</span>
+                        <span className="hidden sm:block pr-1">Created at:</span>
                         <time dateTime={customer.created_at}>{formatDate(customer.created_at)}</time>
                     </p>
                 </div>
             </div>
 
             <div className="flex items-center justify-between gap-x-6 w-1/6">
-                <div className="hidden sm:flex sm:flex-col sm:items-end">
+                <div className="sm:flex sm:flex-col sm:items-end">
                     <Status status={customer.status} />
                 </div>
                 <Menu as="div" className="relative flex-none">
