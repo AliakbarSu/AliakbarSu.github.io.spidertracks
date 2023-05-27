@@ -28,7 +28,7 @@ const updateCustomerStatus = async (id, status) => {
     Item: { id, ...customer.Item, status }
   }
 
-  return await dynamo.put(params).promise()
+  return dynamo.put(params).promise()
 }
 
 const addOpportunity = async (id, opportunity) => {
@@ -41,7 +41,7 @@ const addOpportunity = async (id, opportunity) => {
     }
   }
 
-  return await dynamo.put(params).promise()
+  return dynamo.put(params).promise()
 }
 
 const updateOpportunity = async (customerId, opportunity) => {
@@ -55,7 +55,7 @@ const updateOpportunity = async (customerId, opportunity) => {
     Item: { ...customer.Item, opportunities: updatedOpportunities }
   }
 
-  return await dynamo.put(params).promise()
+  return dynamo.put(params).promise()
 }
 
 module.exports = {

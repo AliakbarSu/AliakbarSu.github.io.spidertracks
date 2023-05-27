@@ -61,14 +61,12 @@ const addOpportunityForCustomer = async (event) => {
     if (!opportunity.name || !opportunity.status) {
       throw new Error('No opportunity provided')
     }
-    await addOpportunity(id, {
-      ...opportunity,
-      id: uuid()
-    })
+    const data = { ...opportunity, id: uuid() }
+    await addOpportunity(id, data)
     return {
       statusCode: 200,
       headers: CORS_HEADERS,
-      body: 'Opportunity was added'
+      body: JSON.stringify({ message: 'Opportunity was added', data })
     }
   } catch (err) {
     console.log(err)
