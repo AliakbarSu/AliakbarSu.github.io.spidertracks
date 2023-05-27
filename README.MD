@@ -76,7 +76,13 @@ This is a react application that allows the user to filter through a list of cus
     npm run dev
    ```
 
-2. Open your browser and navigate to `http://localhost:5173` to see the application running.
+2. Run the tests
+
+   ```shell
+   npm run test
+   ```
+
+3. Open your browser and navigate to `http://localhost:5173` to see the application running.
 
 ### Usage
 
