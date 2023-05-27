@@ -3,6 +3,7 @@ import { Opportunity } from "types/Opportunity"
 
 
 const Opportunities = ({ opportunities, customerId, ...props }: { opportunities: Opportunity[], customerId: string }) => {
+    const sortedItems = [...opportunities].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
     return (
         <div className="w-full mt-12 p-3 border-gray-500 border-l border-r" {...props}>
             <div className="sm:flex sm:items-center">
@@ -32,7 +33,7 @@ const Opportunities = ({ opportunities, customerId, ...props }: { opportunities:
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200">
-                                {opportunities.map((opt) => (
+                                {sortedItems.map((opt) => (
                                     <tr key={opt.id}>
                                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                             {opt.name}
